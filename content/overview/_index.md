@@ -14,7 +14,9 @@ It's defined on [the official Docker site](https://docs.docker.com/compose/) as:
 
 But what does that mean, really?
 
-Essentially, it lets you define one or more docker containers in a simple text file (using [YAML](https://en.wikipedia.org/wiki/YAML#:~:text=YAML%20(a%20recursive%20acronym%20for,is%20being%20stored%20or%20transmitted.)). These files are easy to read and understand, they can be easily backed up and changes can be made as easily as editing a text file.
+Essentially, it lets you define one or more docker containers in a simple text file (using [YAML](https://en.wikipedia.org/wiki/YAML)). These files are easy to read and understand, they can be easily backed up and changes can be made as easily as editing a text file.
+
+It looks a bit like this:
 
 ```yaml
 version: "3.9"
@@ -26,5 +28,5 @@ services:
   redis:
     image: "redis:alpine"
 ```
+Don't worry if that looks scary, we'll step through what it all means on the following pages.
 
-Built with <i class="fas fa-heart"></i> from Grav and Hugo
