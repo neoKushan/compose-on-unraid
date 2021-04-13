@@ -56,3 +56,22 @@ home = [ "HTML", "RSS", "JSON"]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+	  
+[Languages]
+[Languages.en]
+title = "using Docker Compose un unRAID"
+weight = 1
+languageName = "English"
+landingPageURL = "/en"
+landingPageName = "<i class='fas fa-home'></i> Home"
+
+[[Languages.en.menu.shortcuts]]
+name = "<i class='fab fa-fw fa-github'></i> GitHub repo for this site"
+identifier = "ds"
+url = "https://github.com/neoKushan/compose-on-unraid"
+weight = 10
+
+[[Languages.en.menu.shortcuts]]
+name = "<i class='fab fa-reddit-alien'></i> neoKushan"
+url = "https://github.com/neoKushan/compose-on-unraid"
+weight = 11
