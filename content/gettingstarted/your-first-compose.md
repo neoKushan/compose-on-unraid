@@ -45,19 +45,21 @@ If you do an `ls`, you should see `docker-compose.yml`.
 
 Now, run the following command:
 
-`docker-compose up`.
+```bash
+docker-compose up
+```
 
 This command will read the docker-compose.yml file and start spinning up the container within. If you've not used nginx before, it'll start pulling down the image before running it. *This might take a few minutes, be patient*.
 
 Eventually you'll see something like `Creating compose_web_1 ... done` and then more output. The container is running!
 
-Open up your web browser and try naviging to http://yourservername:9080 (Note the port number and it's `http`, not `https`. You should hopefully see this screen:
+Open up your web browser and try navigating to http://yourservername:9080 (Note the port number and it's `http`, not `https`. You should hopefully see this screen:
 
 ![nginx](/images/nginx.png)
 
 If you see this - congrats! You're using docker-compose to spin up a docker container. 
 
-You'll notice that your terminal is spewing out logs from this as well. If you close your terminal session, it would also stop the container. To stop the container, press `Ctrl+C`. You'll see a messsage like Stopping compose_web_1 ... done.
+You'll notice that your terminal is spewing out logs from this as well. If you close your terminal session, it would also stop the container. To stop the container, press `Ctrl+C`. You'll see a messsage like `Stopping compose_web_1 ... done`.
 
 ### Docker compose Down
 
@@ -67,7 +69,7 @@ It's a bit rubbish if you need to leave your terminal open all the time, so how 
 docker-compose up -d
 ```
 
-That `-d` flag means "detached", compose will do exactly what it did before and start the nginx container. This time, it should run much faster as well.
+That `-d` flag means "detached", compose will do exactly what it did before and start the nginx container but in the background, leaving your terminal free for more commands. This time, it should run much faster as well as it's already downloaded the image during the previous steps.
 
 Now, if you go to http://yourservername:9080 again you should get the nginx page from above. Great! But now that it's running in the background, how do we stop it? Easy - 
 
@@ -75,7 +77,7 @@ Now, if you go to http://yourservername:9080 again you should get the nginx page
 docker-compose down
 ```
 
-You should see some messages about your container being stopped and removed. docker-compose `up` and `down` and the two main commands for spinning the containers up and down.
+You should see some messages about your container being stopped and removed. docker-compose `up` and `down` are the two main commands for spinning the containers up and down.
 
 ### Making changes
 
@@ -87,7 +89,7 @@ docker-compose up -d
 
 Check that the nginx page is visible at http://yourservername:9080, this is nothing different than what you've done before.
 
-Now, edit the `docker-compose.yml` file in your favourite text edit (I like VS Code, but any text editor will do). We're going to change the port from `9080` to a different number, `9090`. Your file should like like this:
+Now, edit the `docker-compose.yml` file in your favourite text editor (I like VS Code, but any text editor will do). We're going to change the port from `9080` to a different number, `9090`. Your file should like like this:
 
 ```yaml
 version: '3.8'
@@ -114,60 +116,3 @@ If you want to tinker with the file, feel free but when you're done, don't forge
 {{% notice info %}}
 If you've closed your terminal or logged out, remember when accessing the terminal again that you need to `cd` to `/mnt/user/appdata/compose` before you run your docker-compose commands or you'll get errors as it cannot find the docker-compose.yml file.
 {{% /notice %}}
-
-## Breakdown of a compose file
-
-Hopefully by now you've undstood how to stand up and spin down a compose file, but what exactly _is_ that yaml file all about? Let's break it down line by line.
-
-```yaml
-version: '3.8'
-
-services:
-    web:
-        image: nginx
-        ports:
-         - "9090:80"
-```
-
-The first line is the version of the compose specification (Not docker-compose itself):
-
-```yaml
-version: '3.8'
-```
-
-What's special about 3.8? Well, nothing really. It's just the latest version of the compose specification at the time I wrote this guide. One of the good things about compose is that they can add (and remove!) parts of the specification without breaking too much becuase the file itself is versioned. You don't need to have a specific version of compose installed, just the latest works fine and you can upgrade any time. However, this means at the top of your file you need to specify the version. If you're unsure, just use 3.8 but be aware if you're looking at tutorials and examples from around the net that some things shift between versions and that there are some fairly major breaking changes between 2.0 and 3.0 especially.
-
-You can read more about the different compose file versions [here](https://docs.docker.com/compose/compose-file/compose-versioning/).
-
-```yaml
-services:
-```
-
-Within a compose file, you can specify everything that docker is concerned with - from container images, to networks and volumes and some other stuff you might not care about. In this example we're only specifying a container and those go under `services:`. 
-
-This next block is a single container definition:
-```yaml
-    web:
-        image: nginx
-        ports:
-         - "9090:80"
-```
-
-The `web` part is actually just a freeform name - it could be anything, but by default compose will name the container defined below it with `web`. This is actually _super_ useful to know, because you'll find out later on that containers within a single compose file can reference each other using this name. This is also why when you ran `docker-compose up`, it referenced `compose_web_1` - the `compose` part is taken from the folder the docker-compose.yml file is located and the `web` part is this name. We'll talk more about naming containers later, as it's important to know - just know that for now you can write whatever you want in here.
-
-The `image: nginx` part is the docker image itself that it pulls from the docker hub. It could have been `image: linuxserver/swag` instead and you can include tags from images, such as `image: nginx:latest` or versions, like `image: nginx:1.19.9`.
-
-Finally, we have the `ports:` section. This is where you specify any and all ports you're binding from your host to your container. The nginx web server always listens on port `80`, but we bound port `9090` in this example. This is a longwinded way of saying that port `9090` of the host (your unraid server) binds to port `80` on the container. That's why browsing http://yourservername:9090 brought up the nginx page.
-
-We can specify multiple ports with additions to this list, for example:
-
-```yaml
-    web:
-        image: nginx
-        ports:
-         - "9090:80"
-		 - "8443:443"
-		 - "1234:1234"
-```
-
-And that's it! Remember, this is a very basic compose file, there's lots more to go into it later (Such as volumes or environment variables) but hopefully that wasn't too scary. 
