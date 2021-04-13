@@ -19,6 +19,8 @@ unRAID makes it super easy to spin up containers using one of those templates, b
 
 To be clear: unRAID's templates are _great_ and I'm a huge fan of anything that reduces the barrier to entry for this technical stuff. If those templates are working for you and you're happy, feel free to stick with them.
 
+However, if you stick with things and learn how to use compose, not only will you no longer be reliant on those templates, you won't even miss 'em!
+
 ## Compose is standard and it's everywhere
 
 Not everyone uses unRAID, but quite a lot of people do use docker containers - be that on their PC, on a different NAS, in a VM and so on. Anywhere you can run docker, you can run compose. 
