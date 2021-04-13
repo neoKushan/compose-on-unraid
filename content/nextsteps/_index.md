@@ -15,6 +15,8 @@ In future updates to this guide, I'll add content on:
 * Dealing with awkward networking setups (Such as pihole/adguard which require a dedicated IP)
 * Using a separate .env files
 * Multiple real-life example compose files, including one for the [Ultimate Unraid Dashboard](https://forums.unraid.net/topic/96895-ultimate-unraid-dashboard-uud/)
+* How to migrate your existing containers into a compose file
+* How to turn a `docker run` command into a compose definition
 * ...and much more!
 
 If you have any suggestions for other content, feel free to comment on any of the threads on reddit or the forums about this guide, or open up an issue on [the github page](https://github.com/neoKushan/compose-on-unraid) for this site.
