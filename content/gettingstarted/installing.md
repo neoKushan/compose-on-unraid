@@ -28,7 +28,7 @@ That's it!
 
 ### Second Method (using cURL)
 
-If you don't have python installed, or if you prefer to pull directly from the "source", you can run this snippet from the bash console:
+If you don't have python installed, or if you prefer to pull directly from the "source", you can run this snippet from the terminal (Copy and paste the whole thing):
 
 ```bash
 COMPOSE_VERSION=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep 'tag_name' | cut -d\" -f4)
