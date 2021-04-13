@@ -1,23 +1,17 @@
 ---
 title: "Homepage"
-date: 2021-04-06T17:22:21+01:00
 ---
 
 # Welcome
 
-This site/guide is a work in progress. Bear with me as it'll likely take several days to really complete it.
+This site/guide is intended to be a good, in-depth but easy to understand guide on how to user docker-compose on unRAID. 
 
-But when it's done, you'll be able to make sense of _this_: 
+It's still a work in progress and there's **a lot** more content to come. Bear with me as it'll likely take several weeks to really complete it, but there should be enough info now to get your feet wet with Docker Compose and start tinkering.
 
-```yaml
-version: "3.9"
-services:
-  web:
-    build: .
-    ports:
-      - "5000:5000"
-  redis:
-    image: "redis:alpine"
-```
+<i class="fas fa-heart"></i> you all
 
-<i class="fas fa-heart"></i> you all.
+-Kushan
+
+## Contributions welcome
+
+This site is built using markdown files, you can see the "Edit this page" link in the top right - if you're familiar with how to use github, by all means please fork the repository and submit a PR to add more content or fix any of the (many) spelling mistakes I have made. 
