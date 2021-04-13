@@ -46,3 +46,11 @@ The easiest way to test if Compose is installed correctly is to run this command
 docker-compose --version
 ```
 If it's installed, you'll get a response like `docker-compose version 1.29.0, build unknown`. That means it worked!
+
+## An Alternative way to tinker (Portainer)
+
+If you don't want to mess about installing compose on your server, but you do want to tinker with compose files then you can use [Portainer](https://www.portainer.io/) to deploy a compose yaml file. 
+
+With Portainer installed, simply go to 'Stacks' on the left-hand menu, select '+ Add Stack' and paste your compose file into the web editor.
+
+Installing Portainer is out of scope for this guide, but it's relatively straightforward to install if you're able to install other docker apps.
