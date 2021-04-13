@@ -1,6 +1,5 @@
 ---
 title: "Getting Started"
-date: 2021-04-06T17:22:21+01:00
 chapter: true
 weight: 2
 ---

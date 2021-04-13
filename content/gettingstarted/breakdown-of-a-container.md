@@ -1,6 +1,5 @@
 ---
 title: "Breakdown of the example compose file"
-date: 2021-04-06T17:28:06+01:00
 weight: 6
 ---
 
