@@ -1,6 +1,5 @@
 ---
 title: "Overview"
-date: 2021-04-06T17:22:21+01:00
 chapter: true
 weight: 1
 ---
@@ -29,5 +28,7 @@ services:
   redis:
     image: "redis:alpine"
 ```
-Don't worry if that looks scary, we'll step through what it all means on the following pages.
+Don't worry if that looks scary, we'll step through what it all means in the rest of this guide.
+
+Be aware, there are some drawbacks to using compose on unRAID, so please read through the following section so you know what you're getting yourself into.
 
