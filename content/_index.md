@@ -2,7 +2,7 @@
 title: "Homepage"
 ---
 
-# Welcome
+# Using docker-compose with Unraid
 
 This site/guide is intended to be a good, in-depth but easy to understand guide on how to user docker-compose on unRAID. 
 

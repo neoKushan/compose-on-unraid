@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://wonderful-shirley-19e9c1.netlify.app/"
 languageCode = "en-us"
 title = "Using Docker Compose with unRAID"
 
@@ -59,7 +59,7 @@ home = [ "HTML", "RSS", "JSON"]
 	  
 [Languages]
 [Languages.en]
-title = "using Docker Compose un unRAID"
+title = "Using Docker Compose with unRAID"
 weight = 1
 languageName = "English"
 landingPageURL = "/en"
