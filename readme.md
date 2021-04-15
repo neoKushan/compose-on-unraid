@@ -2,7 +2,7 @@
 
 This is a simple documentation site detailing how to use docker-compose on unRAID.
 
-It's currently (temporarily) hosted at https://wonderful-shirley-19e9c1.netlify.app/
+It's currently (temporarily) hosted at https://unraid.kushan.fyi/
 
 # Building and running locally
 
