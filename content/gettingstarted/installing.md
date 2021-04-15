@@ -38,6 +38,25 @@ chmod +x /usr/local/bin/docker-compose
 
 After a few minutes, it'll be installed.
 
+### Using User Scripts Plugin
+
+First go to the Community Applications tab and find and install the "User Scripts" plugin.
+
+Once installed go to the userscripts page and create a new user scripts. Give it a friendly name such as "installDockerCompose" and edit the script
+
+```bash
+#!/bin/bash
+
+## First Install  docker compose 
+COMPOSE_VERSION=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep 'tag_name' | cut -d\" -f4)
+curl -L "https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose 
+
+# make file executable with command beneath
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
+Click save. You will also want to change the schedule to "At Startup of Array" and now you'll always have docker compose installed.
+
 ## Testing
 
 The easiest way to test if Compose is installed correctly is to run this command:
