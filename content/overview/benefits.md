@@ -47,4 +47,4 @@ Want to backup your docker configuration? Just take a copy of that .yml file. Th
 
 If you've ever had to set up your VPN, your torrent client, your \*arr of choice and tried to make them all talk to each other, then tried to put a reverse proxy in front of it, chances are you've hit a few snags around networking. 
 
-Make no mistake, networking in docker is _complicated_ (Because _networking_ is complicated), but compose is slightly clever - any services you define in a single compose file are treated as one big appplication with its own network. To us, the end user, this doesn't mean much, but it means those containers can "see" each other and communicate with each other with very little faffing on your end. 
+Make no mistake, networking in docker is _complicated_ (Because _networking_ is complicated), but compose is slightly clever - any services you define in a single compose file are treated as one big application with its own network. To us, the end user, this doesn't mean much, but it means those containers can "see" each other and communicate with each other with very little faffing on your end. 
